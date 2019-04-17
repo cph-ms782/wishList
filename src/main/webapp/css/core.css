@@ -1,0 +1,242 @@
+/* 
+    Created on : Mar 19, 2019, 1:16:21 PM
+    Author     : martin
+*/
+
+#legoText span {
+    animation: bounce .5s ease infinite alternate;
+    font-family: 'Titan One', cursive;
+    font-size: 100px;
+    left: 10px;
+    text-shadow: 0 1px 0 #CCC,
+        0 2px 0 #CCC,
+        0 3px 0 #CCC,
+        0 4px 0 #CCC,
+        0 5px 0 #CCC,
+        0 6px 0 transparent,
+        0 7px 0 transparent,
+        0 8px 0 transparent,
+        0 9px 0 transparent,
+        0 10px 10px rgba(0, 0, 0, .4);
+}
+
+#legoText span:nth-child(2) { animation-delay: .5s; }
+#legoText span:nth-child(3) { animation-delay: .2s; }
+#legoText span:nth-child(4) { animation-delay: .4s; }
+
+@keyframes bounce {
+    100% {
+        top: -20px;
+        text-shadow: 0 1px 0 lightblue,
+            0 2px 0 lightblue,
+            0 3px 0 lightblue,
+            0 4px 0 lightblue,
+            0 5px 0 lightblue,
+            0 6px 0 lightblue,
+            0 7px 0 lightblue,
+            0 8px 0 lightblue,
+            0 9px 0 lightblue,
+            0 50px 25px rgba(0, 0, 0, .2);
+    }
+}
+
+#headerTopDiv {
+    text-align: center;
+    position: fixed;
+    top: 0px;
+}
+
+#headerDiv {
+    display: inline-block;
+    top: 0;
+    left: 300px;
+    width: 400px;
+    border: 3px solid #73AD21;
+    background-color: lightblue;
+    font-size: 56px
+}
+
+#headerDiv img {
+    position: relative;
+    top: 10px;
+}
+
+#menuBlock {
+    display: inline-block;
+    width: 400px;
+}
+
+#login {
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 400px;
+    width: 300px;
+    z-index: 100;
+    background-color: rgb(27,45,94);
+    border-radius: 0 0 5px 5px;
+}
+
+#login a {
+    text-decoration: none;
+}
+#openLogin {
+    margin: 0;
+    cursor: pointer;
+    background-image:  url(../img/open.png);
+    background-repeat: no-repeat;
+    background-position:  8px 7px;
+    color: white;
+    text-align: left;
+    padding: 5px 0 5px 30px;
+    border-radius: 0 0 5px 5px;
+}
+
+#login .closing {
+    background-image: url(../img/close.png);
+}
+
+#openLogin:hover {
+    color: rgb(0,0,0);
+    background-color: rgb(200,200,200);	
+}
+
+#login form {
+    padding: 10px 10px 0 10px;
+    display: none;	
+}
+#login label {
+    font-size: .75em;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    text-align:right;
+    margin: 0 15px 0 0;
+    display: inline-block;
+}
+#login input[type="text"] {
+    font-size: 14px;
+    width: 140px;	
+}
+#login .button {
+    text-align: right;	
+    padding-right: 15px;
+}
+
+#registerButton {
+    display: none;
+}
+
+#registerDiv {
+    position: relative;
+    width: 300px;
+    left: 400px;
+    top: 220px;
+    z-index: 100;
+    background-color: rgb(27,45,94);
+    border-radius: 5px 5px 5px 5px;
+}
+
+#registerDiv form {
+    padding: 10px 10px 0 10px;
+    display: none;	
+}
+#registerDiv label {
+    font-size: .75em;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    text-align: right;
+    margin: 0 15px 0 0;
+    display: inline-block;
+}
+
+#mainInfo {
+    position: absolute;
+    font-size: 60px;
+    left: 450px;
+    top: 50px;
+    z-index: 45;
+}
+#mainInfo p {
+    font-size: 20px;
+    font-family: 'Titan One', cursive;
+}
+
+#errorInfo {
+    position: fixed;
+    font-size: 35px;
+    left: 0;
+    bottom: 0;
+}
+#errorInfo p {
+    font-size: 25px;
+    font-family: 'Titan One', cursive;
+}
+
+#orderInfoBox {
+    padding: 5px 5px 0px 35px;
+    border: 2px solid #4CAF50;
+    font-size:10px;
+    width:100%;
+    position: absolute;
+    right: 50px;
+    height: auto;
+    width: auto;
+    background-color: gainsboro;
+    background-image: url("../img/lego_house2.jpg");
+}
+
+.orderInfo p {
+    font-family: 'Times New Roman', cursive;
+    display: inline-block;
+    color: yellow;
+    text-shadow: 3px 3px 5px #000;
+    font-size: 40px;
+}
+
+.orderInfo li {
+    font-family: 'Times New Roman', cursive;
+    color: black;
+    text-shadow: 3px 3px 5px white;
+    text-align: center;
+    font-size: 60px;
+}
+
+#orderInfoHeader {
+    font-family: 'Times New Roman', cursive;
+    text-shadow: 2px 2px 4px #000;
+    color: black;
+    font-size: 65px;
+}
+
+#newHouseForm label {
+    font-size: .75em;
+    color: black;
+    font-weight: bold;
+    width: 100px;
+    text-align: right;
+    margin: 0 15px 0 0;
+    display: inline-block;
+}
+
+#newHouseForm input[type="text"] {
+    font-size: 14px;
+    width: 140px;	
+}
+
+firstText {
+    padding: 5px 5px 0px 35px;
+    border: 2px solid #4CAF50;
+    font-size:10px;
+    width:100%;
+    position: absolute;
+    right: 50px;
+    height: auto;
+    width: auto;
+    background-color: gainsboro;
+    font-family: 'Times New Roman', cursive;
+    text-shadow: 2px 2px 4px #000;
+    color: black;
+    font-size: 65px;
+}
