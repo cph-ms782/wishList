@@ -4,6 +4,7 @@ import Logic.Exceptions.LoginSampleException;
 import Data.WishMapper_DB;
 import Logic.DTO.Wish;
 import Logic.Exceptions.WishSampleException;
+import java.util.List;
 
 /**
  * facade for handling traffic between data and presentation
@@ -41,16 +42,26 @@ public class LogicFacade
         return WishMapper_DB.getWish(id);
     }
 
+    public static List<Wish> fetchWishes() throws WishSampleException, LoginSampleException
+    {
+        return WishMapper_DB.getWishes();
+    }
+
     public static void main(String[] args) throws WishSampleException, LoginSampleException
     {
 //        Wish wish = new Wish("Keyboard", "Lars", "Den køber vi");
-        Wish wish = new Wish("Keyboard");
+//        Wish wish = new Wish("Keyboard");
 //        System.out.println(createWish(wish).toString());
 //        System.out.println(removeWish(12));
-        wish = fetchWish(5);
-        System.out.println("fetch: " + wish);
-        wish = new Wish(wish. getWishID(), "Musealter", "Lars og Hans", "Fandt den billigt");
-        System.out.println("alter: " + alterWish(wish));
+//        wish = fetchWish(5);
+//        System.out.println("fetch: " + wish);
+//        wish = new Wish(wish. getWishID(), "Musealter", "Lars og Hans", "Fandt den billigt");
+//        System.out.println("alter: " + alterWish(wish));
+        for (Wish wish : fetchWishes())
+        {
+            System.out.println(wish.toString());
+        }
+
     }
 
 }

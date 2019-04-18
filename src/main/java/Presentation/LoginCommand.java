@@ -1,6 +1,7 @@
 package Presentation;
 
 import Logic.Exceptions.LoginSampleException;
+import Logic.Exceptions.WishSampleException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +15,7 @@ public class LoginCommand extends Command
 {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, WishSampleException
     {
         String giver = request.getParameter("giver");
         String password = request.getParameter("password");
@@ -23,12 +24,13 @@ public class LoginCommand extends Command
             HttpSession session = request.getSession();
             if ("migselv".equals(giver))
             {
-                session.setAttribute("user", "migselv");
-                return "seewishpage";
+                session.setAttribute("user", giver);
+                return "newwishpage";
             } else
             {
-                session.setAttribute("user", "true");
-                return "newwishpage";
+                session.setAttribute("user", giver);
+                session.setAttribute("wishes", Logic.LogicFacade.fetchWishes());
+                return "seewishpage";
             }
         }
         return "loginpage";

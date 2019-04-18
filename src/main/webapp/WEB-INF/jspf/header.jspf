@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>The Lego Store</title>
+<title>50 år</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
 <link rel="stylesheet" href="css/core.css">
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -12,13 +12,13 @@
     {
 %>
 <script>
-//    loginDropdown();
+    loginDropdown();
 </script>
 <% } else
 {
 %>
 <script>
-//    hideLogin();
+    hideLogin();
 </script>
 <%
     }

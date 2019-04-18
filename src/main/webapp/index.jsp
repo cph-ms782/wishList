@@ -14,20 +14,15 @@
 
     <body>
         <%@ include file = "WEB-INF/jspf/body.jspf" %>
-
-        Only bring text if there's no logged in user
         <%String cUser = (String) session.getAttribute("user");
             if (cUser == null)
             {
         %>
         <!--info for user-->
-        <div class="firstText">
-            <div id="orderInfoHeader">
-                <br><br><br><br><br>
-                <p style="text-decoration: underline">For at se gaveønsker, login med følgende:</p>
-                <p>Navn: <span style="color: aquamarine">Gavegiver, f.eks "Hans, Christian og Anders"</span></p>
-                <p>Kodeord: <span style="color: aquamarine">se mail</span></p>
-            </div>
+        <div id="firstText">
+            <p style="text-decoration: underline">For at se gaveønsker, login med følgende:</p>
+            <p>Navn: <span style="color: blue"> Gavegiveren</span> (f.eks "Hans, Christian og Anders")</p>
+            <p>Kodeord: <span style="color: blue"> se mail</span></p>
         </div>
         <%}%>
     </body>

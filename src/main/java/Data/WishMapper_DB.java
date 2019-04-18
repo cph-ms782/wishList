@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -134,7 +136,7 @@ public class WishMapper_DB
                 notes = rs.getString("notes");
             }
             return new Wish(id, wishtext, giver, notes);
-            
+
         } catch (SQLException ex)
         {
             throw new WishSampleException("Kunne ikke skabe nyt ønske: " + ex.getMessage());
@@ -144,4 +146,32 @@ public class WishMapper_DB
         }
     }
 
+    public static List<Wish> getWishes() throws WishSampleException, LoginSampleException
+    {
+        List<Wish> wishes = new ArrayList();
+        try
+        {
+            con = Connector.connection(con);
+
+            String SQL = "SELECT * FROM `wishes`;";
+            ps = con.prepareStatement(SQL);
+            rs = ps.executeQuery();
+            while (rs.next())
+            {
+                wishes.add(new Wish(rs.getInt("id"),
+                        rs.getString("wishtext"),
+                        rs.getString("giver"),
+                        rs.getString("notes")
+                ));
+            }
+            return wishes;
+
+        } catch (SQLException ex)
+        {
+            throw new WishSampleException("Kunne ikke skabe liste med ønsker: " + ex.getMessage());
+        } finally
+        {
+            Connector.CloseConnection(rs, ps, con);
+        }
+    }
 }
