@@ -15,6 +15,6 @@ public class UnknownCommandException extends Exception
      */
     public UnknownCommandException()
     {
-        super("Der er sket en fejl. Kontakt IT");
+        super("Husk at man kan logge ud ved at trykke på 50 skiltet");
     }
 }

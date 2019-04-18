@@ -21,6 +21,7 @@ public class SeeWishesCommand extends Command
     {
         String giver = request.getParameter("giver");
         String notes = request.getParameter("notes");
+        String wishText = request.getParameter("wishtext");
         int id = Integer.parseInt(request.getParameter("index"));
 
         HttpSession session = request.getSession();
@@ -40,6 +41,12 @@ public class SeeWishesCommand extends Command
             {
                 w.setNotes(notes);
             }
+            
+            if (wishText != null)
+            {
+                w.setWishText(wishText);
+            }
+            
             LogicFacade.alterWish(w);
             session.setAttribute("wishes", LogicFacade.fetchWishes());
             return "seewishpage";

@@ -14,7 +14,6 @@ form div {
     display: inline-block;
     position: relative;
     top: 10px;
-    width: 200px;
     padding-right: 10px;
 }
 
@@ -23,6 +22,7 @@ input {
     border-radius: 4px;
     height: 40px;
     padding: 5px;
+    max-width: 200px;
 }
 
 #next {

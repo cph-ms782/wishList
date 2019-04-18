@@ -24,7 +24,7 @@
                         <input type="hidden" name="index" value="${param["index"]}" />
                         <div>
                             <label for="giver" class="label">Giver</label>
-                            <input type="text" id="departure" name="giver" value="${sessionScope.wish.giver}">
+                            <input type="text" id="departure" name="giver" value="${sessionScope.user}">
                         </div>
                         <div>
                             <label for="notes" class="label">Noter</label>

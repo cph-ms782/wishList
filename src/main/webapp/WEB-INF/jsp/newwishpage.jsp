@@ -22,7 +22,7 @@
                         <input type="hidden" name="command" value="NewWishCommand" />
                         <div>
                             <label for="wishtext" class="label">Nyt Ønske</label>
-                            <input type="text" id="departure" name="wishtext">
+                            <input contenteditable="true" type="text" id="departure" name="wishtext">
                         </div>
                         <div>
                             <button id="next">Fortsæt</button>

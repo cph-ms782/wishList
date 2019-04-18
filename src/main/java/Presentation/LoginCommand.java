@@ -33,6 +33,6 @@ public class LoginCommand extends Command
                 return "seewishpage";
             }
         }
-        return "loginpage";
+        throw new LoginSampleException("Skriv de rigtige login detaljer for at komme ind");
     }
 }

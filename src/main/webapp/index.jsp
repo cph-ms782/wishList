@@ -21,7 +21,7 @@
         <!--info for user-->
         <div id="firstTextContainer">
             <div id="firstText">
-                <p style="text-decoration: underline">For at se gaveønsker, login med følgende:</p>
+                <p>For at se gaveønsker, login med følgende:</p>
                 <p>Navn: <span style="color: blue"> Gavegiveren</span> (f.eks "Hans, Christian og Anders")</p>
                 <p>Kodeord: <span style="color: blue"> se mail</span></p>
             </div>
