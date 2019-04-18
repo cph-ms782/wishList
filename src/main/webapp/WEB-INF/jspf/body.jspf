@@ -4,58 +4,39 @@
 
 <!--logo area-->
 <div id="headerTopDiv">
-    <a href="FrontController?command=LogoutCommand">
-        <div id="headerDiv">
+    <div id="headerDiv">
+        <a href="FrontController?command=LogoutCommand">
             <img src="img/50.gif" alt="50 år">
-            <h1 id="headerText">
-                <span id="legoText">
-                    <span style="color: blue;">5</span>
-                    <span style="color: green;">0 </span>
-                    <span style="color: yellow;">å</span>
-                    <span style="color: red;">r</span>
-                </span>
-            </h1>
-        </div>
-    </a>
+        </a>
+        <h1 id="headerText">
+            <span id="legoText">
+                <span style="color: blue;">5</span>
+                <span style="color: green;">0 </span>
+                <span style="color: yellow;">å</span>
+                <span style="color: red;">r</span>
+            </span>
+        </h1>
+    </div>
 
     <!--plant login and register form on page-->
-        <div id="login">
-            <a href="form.html"><p id="openLogin">Login</p></a>
-            <form name="LoginCommand" action="FrontController" method="POST">
-                <input type="hidden" name="command" value="LoginCommand">
-                <p>
-                    <label for="giver">Giver</label>
-                    <input type="text" name="giver" id="username">
-                </p>
-                <p>
-                    <label for="password">Kodeord</label>
-                    <input type="text" name="password" id="password">
-                </p>
-                <p class="button">
-                    <input type="submit" name="button" class="btn btn-success" id="button" value="Submit" >
-                </p>
-            </form>
-        </div>
-    
-    <!--Here comes the tables and other infos-->
-    <div id="mainInfo">
-        <p></p>
-        <div id="wishTable" class="container">
-            <div class="row">
-                <div class="col-sm">
-                    <!--Inserting place for order table-->
-                    <table id="mainTable" ></table>
-                </div>
-            </div>
-        </div>
+    <div id="login">
+        <a href="form.html"><p id="openLogin">Login</p></a>
+        <form name="LoginCommand" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="LoginCommand">
+            <p>
+                <label for="giver">Giver</label>
+                <input type="text" name="giver" id="username">
+            </p>
+            <p>
+                <label for="password">Kodeord</label>
+                <input type="text" name="password" id="password">
+            </p>
+            <p class="button">
+                <input type="submit" name="button" class="btn btn-success" id="button" value="Submit" >
+            </p>
+        </form>
     </div>
 </div>
-
-<!--area where an orders info is shown-->
-<div id="orderInfo">
-    <p></p>
-</div>
-
 
 <!--area where an error info is shown if it exist-->
 <% String error = (String) request.getAttribute("error");

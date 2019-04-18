@@ -17,12 +17,18 @@
         <div class="wrapper">
             <div class="content">
                 <div class="main">
-                    <h1 class="white-text-with-blue-shadow">Nyt ønske</h1>
+                    <h1 class="white-text-with-blue-shadow">Skriv noget episk</h1>
+                    ${sessionScope.wish.wishText}
                     <form action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="NewWishCommand" />
+                        <input type="hidden" name="command" value="SeeWishesCommand" />
+                        <input type="hidden" name="index" value="${param["index"]}" />
                         <div>
-                            <label for="wishtext" class="label">Nyt Ønske</label>
-                            <input type="text" id="departure" name="wishtext">
+                            <label for="giver" class="label">Giver</label>
+                            <input type="text" id="departure" name="giver" value="${sessionScope.wish.giver}">
+                        </div>
+                        <div>
+                            <label for="notes" class="label">Noter</label>
+                            <input type="text" id="airport" name="notes" value="${sessionScope.wish.notes}">
                         </div>
                         <div>
                             <button id="next">Fortsæt</button>

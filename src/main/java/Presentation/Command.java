@@ -17,6 +17,7 @@ abstract class Command {
         commands.put("LogoutCommand", new LogoutCommand());
         commands.put("SeeWishesCommand", new SeeWishesCommand());
         commands.put("NewWishCommand", new NewWishCommand());
+        commands.put("ChangeWishCommand", new ChangeWishCommand());
     }
 
     static Command from( HttpServletRequest request ) {

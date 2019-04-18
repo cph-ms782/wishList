@@ -131,17 +131,17 @@
     padding-right: 15px;
 }
 
+#wishTable{
+    width: 100%;
+}
+
 #mainTable {
     position: relative;
     text-align: center;
-    font-size: 60px;
-    /*    left: 450px;
-        top: 50px;*/
     z-index: 45;
 }
 
 #mainTable p {
-    font-size: 40px;
     font-family: 'Times New Roman', cursive;
 }
 
@@ -156,14 +156,15 @@
     font-family: 'Titan One', cursive;
 }
 
+#firstTextContainer{
+    text-align: center;
+}
+
 #firstText {
     padding: 5px 5px 0px 35px;
     border: 2px solid #4CAF50;
-    position: absolute;
     font-size:2em;
-    text-align: center;
-    height: auto;
-    width: auto;
+    display: inline-block;
     background-color: gainsboro;
     font-family: 'Times New Roman', cursive;
     text-shadow: 2px 2px 4px #000;

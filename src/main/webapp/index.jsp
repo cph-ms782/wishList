@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 17. april, 2019
-    Modified on: 17. april, 2019
+    Modified on: 18. april, 2019
     Author     : martin bøgh
 --%>
 
@@ -19,10 +19,12 @@
             {
         %>
         <!--info for user-->
-        <div id="firstText">
-            <p style="text-decoration: underline">For at se gaveønsker, login med følgende:</p>
-            <p>Navn: <span style="color: blue"> Gavegiveren</span> (f.eks "Hans, Christian og Anders")</p>
-            <p>Kodeord: <span style="color: blue"> se mail</span></p>
+        <div id="firstTextContainer">
+            <div id="firstText">
+                <p style="text-decoration: underline">For at se gaveønsker, login med følgende:</p>
+                <p>Navn: <span style="color: blue"> Gavegiveren</span> (f.eks "Hans, Christian og Anders")</p>
+                <p>Kodeord: <span style="color: blue"> se mail</span></p>
+            </div>
         </div>
         <%}%>
     </body>

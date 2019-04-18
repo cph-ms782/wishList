@@ -17,34 +17,33 @@ public class SeeWishesCommand extends Command
 {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws WishSampleException, LoginSampleException
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, WishSampleException
     {
+        String giver = request.getParameter("giver");
+        String notes = request.getParameter("notes");
+        int id = Integer.parseInt(request.getParameter("index"));
+
         HttpSession session = request.getSession();
-        String user = (String) session.getAttribute("user");
+        String password = (String) session.getAttribute("password");
 
-//      check if the user is logged ind
-        if (user != null && "true".equals(user))
+        if ("halvtreds".equals(password))
         {
-//            try
-//            {
-//                wish = new Wish(user.getID(), length, width, height, false);
-//
-//                //Save and fill order with orderID
-//                order = LogicFacade.createOrder(order);
-//                session.setAttribute("wishes",
-//                        LogicFacade.fillOrderList(LogicFacade.fetchOrders(user.getID())));
-//                session.setAttribute("order", order);
-//
-//            } catch (WishSampleException ex)
-//            {// if there's been an error in the fetching of data from storage
-//                throw new WishSampleException("Der er sket en fejl i håndteringen af det nye ønske" + ex.getMessage());
-//            }
+//            Change wish
+            Wish w = LogicFacade.fetchWish(id);
 
-//          if there's been no exception pass on the next page
-            return "seewishespage";
+            if (giver != null)
+            {
+                w.setGiver(giver);
+            }
+
+            if (notes != null)
+            {
+                w.setNotes(notes);
+            }
+            LogicFacade.alterWish(w);
+            session.setAttribute("wishes", LogicFacade.fetchWishes());
+            return "seewishpage";
         }
-//      if you're not logged in an a customer this message
-        throw new LoginSampleException("Man skal være logget ind");
+        return "loginpage";
     }
-
 }

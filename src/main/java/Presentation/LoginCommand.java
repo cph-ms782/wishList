@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 /**
  * command that handles login
  *
- * @author kasper
+ * @author martin
  */
 public class LoginCommand extends Command
 {
@@ -22,13 +22,13 @@ public class LoginCommand extends Command
         if ("halvtreds".equals(password))
         {
             HttpSession session = request.getSession();
+            session.setAttribute("user", giver);
+            session.setAttribute("password", password);
             if ("migselv".equals(giver))
             {
-                session.setAttribute("user", giver);
                 return "newwishpage";
             } else
             {
-                session.setAttribute("user", giver);
                 session.setAttribute("wishes", Logic.LogicFacade.fetchWishes());
                 return "seewishpage";
             }

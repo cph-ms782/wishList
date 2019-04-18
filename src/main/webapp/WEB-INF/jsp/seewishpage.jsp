@@ -11,20 +11,21 @@
 <html>
     <head>
         <%@ include file = "../jspf/header.jspf" %>
-        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
         <script>
             $(document).ready(function () // this make the JS wait for HTML to finish
             {
 
             }); // end ready
         </script>
+        <!--setup of JS table events. Needs to be last of all scripts-->
+        <%@ include file = "../jspf/tableEvents.jspf"%>
     </head>
     <body>
         <%@ include file = "../jspf/body.jspf" %>
         <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på 50 for at logge ud</p>
-        <div id="mainTable">
+        <div id="wishTable">
             <div class="container">
-                <table class="table table-hover table-condensed table-striped text-center">
+                <table id="mainTable" class="table table-hover table-condensed table-striped text-center">
                     <tr class="table">
                         <th></th>
                         <th>Gaveønske</th>
@@ -42,5 +43,8 @@
                 </table>
             </div>
         </div>
+        <c:if test = "${sessionScope.user == 'migselv'}">
+            <button class="btn btn-success centered" onclick="window.location.href = 'FrontController?command=NewWishCommand';">Nyt ønske</button>
+        </c:if>
     </body>
 </html>
