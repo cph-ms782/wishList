@@ -22,6 +22,9 @@
                         <p>For at se gaveønsker, login med følgende:</p>
                         <p>Navn: <span style="color: blue"> Gavegiveren</span> (f.eks "Hans, Christian og Anders")</p>
                         <p>Kodeord: <span style="color: blue"> se mail</span></p>
+                        <p><br /></p>
+                        <p style="font-size: 1.2em">Login og skriv noget i tabellen under Noter </p>
+                        <p style="font-size: 1.4em">for at "reservére" en gave </p>
                     </div>
                 </div>
             </c:when>

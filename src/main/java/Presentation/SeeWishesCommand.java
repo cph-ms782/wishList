@@ -22,32 +22,37 @@ public class SeeWishesCommand extends Command
         String giver = request.getParameter("giver");
         String notes = request.getParameter("notes");
         String wishText = request.getParameter("wishtext");
-        int id = Integer.parseInt(request.getParameter("index"));
-
+        String sIndex = request.getParameter("index");
+        int id = 0;
         HttpSession session = request.getSession();
         String password = (String) session.getAttribute("password");
-
         if ("halvtreds".equals(password))
         {
+            if (sIndex != null && !sIndex.isEmpty())
+            {
+                id = Integer.parseInt(request.getParameter("index"));
+
 //            Change wish
-            Wish w = LogicFacade.fetchWish(id);
+                Wish w = LogicFacade.fetchWish(id);
 
-            if (giver != null)
-            {
-                w.setGiver(giver);
-            }
+                if (giver != null)
+                {
+                    w.setGiver(giver);
+                }
 
-            if (notes != null)
-            {
-                w.setNotes(notes);
+                if (notes != null)
+                {
+                    w.setNotes(notes);
+                }
+
+                if (wishText != null)
+                {
+                    w.setWishText(wishText);
+                }
+
+                LogicFacade.alterWish(w);
             }
             
-            if (wishText != null)
-            {
-                w.setWishText(wishText);
-            }
-            
-            LogicFacade.alterWish(w);
             session.setAttribute("wishes", LogicFacade.fetchWishes());
             return "seewishpage";
         }

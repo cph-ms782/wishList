@@ -18,7 +18,8 @@ public class LoginCommand extends Command
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, WishSampleException
     {
         String giver = request.getParameter("giver");
-        String password = request.getParameter("password");
+        String password = request.getParameter("password").toLowerCase();
+        
         if ("halvtreds".equals(password))
         {
             HttpSession session = request.getSession();

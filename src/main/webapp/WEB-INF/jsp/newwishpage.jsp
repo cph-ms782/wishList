@@ -28,6 +28,12 @@
                             <button id="next">Fortsæt</button>
                         </div>
                     </form>
+                    <form action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="SeeWishesCommand" />
+                        <div>
+                            <button id="wishes">Se ønsker</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
