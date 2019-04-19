@@ -11,13 +11,6 @@
 <html>
     <head>
         <%@ include file = "../jspf/header.jspf" %>
-        <script>
-            $(document).ready(function () // this make the JS wait for HTML to finish
-            {
-
-            }); // end ready
-        </script>
-        <!--setup of JS table events. Needs to be last of all scripts-->
         <%@ include file = "../jspf/tableEvents.jspf"%>
     </head>
     <body>
