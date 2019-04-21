@@ -31,9 +31,15 @@
                             <input type="text" id="airport" name="notes" value="${sessionScope.wish.notes}">
                         </div>
                         <div>
-                            <button id="next">Fortsæt</button>
+                            <button id="next" class="btn btn-warning">Fortsæt</button>
                         </div>
                     </form>
+                    <div>
+                        <form action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="SeeWishesCommand" />
+                            <button id="wishes" class="btn btn-info">Se ønsker</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

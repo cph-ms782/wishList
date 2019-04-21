@@ -25,15 +25,15 @@
                             <input contenteditable="true" type="text" id="departure" name="wishtext">
                         </div>
                         <div>
-                            <button id="next">Fortsæt</button>
+                            <button id="next" class="btn btn-warning">Fortsæt</button>
                         </div>
                     </form>
-                    <form action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="SeeWishesCommand" />
-                        <div>
-                            <button id="wishes">Se ønsker</button>
-                        </div>
-                    </form>
+                    <div>
+                        <form action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="SeeWishesCommand" />
+                            <button id="wishes" class="btn btn-success">Se ønsker</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -131,6 +131,16 @@
     padding-right: 15px;
 }
 
+.centerize {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#changeWishButtonContainer{
+    padding: 10px;
+}
+
 #wishTable{
     width: 100%;
 }

@@ -14,24 +14,42 @@
 
     <body>
         <%@ include file = "../jspf/body.jspf" %>
-        <div class="wrapper">
-            <div class="content">
-                <div class="main">
-                    <h1 class="white-text-with-blue-shadow">Ændre ønske</h1>
-                    
-                    <form action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="SeeWishesCommand" />
-                        <input type="hidden" name="index" value="${param["index"]}" />
+
+        <c:if test = "${sessionScope.user == 'migselv'}">
+            <div class="wrapper">
+                <div class="content">
+                    <div class="main">
+                        <h1 class="white-text-with-blue-shadow">Ændre ønske</h1>
+
+                        <form action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="SeeWishesCommand" />
+                            <input type="hidden" name="index" value="${param["index"]}" />
+                            <div>
+                                <label for="wishtext" class="label">Ønske</label>
+                                <input type="text" id="departure" name="wishtext" value="${sessionScope.wish.wishText}">
+                            </div>
+                            <div>
+                                <button id="next" class="btn btn-warning">Fortsæt</button>
+                            </div>
+                        </form>
+                        <button class="btn btn-success" onclick="window.location.href = 'FrontController?command=NewWishCommand';">Nyt ønske</button>
+                        <form action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="DeleteWishCommand" />
+                            <input type="hidden" name="index" value="${param["index"]}" />
+                            <div>
+                                <button id="wishes" class="btn btn-danger">Slet ønsk</button>
+                            </div>
+                        </form>
                         <div>
-                            <label for="wishtext" class="label">Ønske</label>
-                            <input type="text" id="departure" name="wishtext" value="${sessionScope.wish.wishText}">
+                            <form action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="SeeWishesCommand" />
+                                <button id="wishes" class="btn btn-info">Se ønsker</button>
+                            </form>
                         </div>
-                        <div>
-                            <button id="next">Fortsæt</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </c:if>
+
     </body>
 </html>

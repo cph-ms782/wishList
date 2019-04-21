@@ -16,6 +16,17 @@
     <body>
         <%@ include file = "../jspf/body.jspf" %>
         <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/50.gif" alt="50 km" width="55" height="55"> for at logge ud</p>
+
+        <c:if test = "${sessionScope.user == 'migselv'}">
+
+            <div id="changeWishButtonContainer">
+                <div class="centerize">
+                    <button class="btn btn-success" onclick="window.location.href = 'FrontController?command=NewWishCommand';">Nyt ønske</button>
+                </div>
+            </div>
+
+        </c:if>
+
         <div id="wishTable">
             <div class="container">
                 <table id="mainTable" class="table table-hover table-condensed table-striped text-center">
@@ -40,8 +51,5 @@
                 </table>
             </div>
         </div>
-        <c:if test = "${sessionScope.user == 'migselv'}">
-            <button class="btn btn-success centered" onclick="window.location.href = 'FrontController?command=NewWishCommand';">Nyt ønske</button>
-        </c:if>
     </body>
 </html>

@@ -8,19 +8,16 @@
 <script src = "js/core.js"></script>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<%String chUser = (String) session.getAttribute("user");
-    if (chUser == null)
-    {
-%>
-<script>
-    loginDropdown();
-</script>
-<% } else
-{
-%>
-<script>
-    hideLogin();
-</script>
-<%
-    }
-%>
+
+<c:choose>
+    <c:when test="${sessionScope.user == null}">
+        <script>
+            loginDropdown();
+        </script>
+    </c:when>
+    <c:otherwise>
+        <script>
+            hideLogin();
+        </script>
+    </c:otherwise>
+</c:choose>
