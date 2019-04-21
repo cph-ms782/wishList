@@ -18,6 +18,7 @@ public class NewWishCommand extends Command
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, WishSampleException
     {
+        
         String wishText = request.getParameter("wishtext");
 
         HttpSession session = request.getSession();
@@ -31,7 +32,8 @@ public class NewWishCommand extends Command
             {
                 Logic.LogicFacade.createWish(new Wish(wishText));
                 session.setAttribute("wishes", Logic.LogicFacade.fetchWishes());
-            }else{
+            } else
+            {
                 return "newwishpage";
             }
         } else
