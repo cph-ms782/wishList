@@ -19,13 +19,17 @@ public class LoginCommand extends Command
     {
         String giver = request.getParameter("giver");
         String password = request.getParameter("password").toLowerCase();
+        int user =0;
         
         if ("halvtreds".equals(password))
         {
             HttpSession session = request.getSession();
-            session.setAttribute("user", giver);
+            if("migselv".equals(giver)){
+                user=1;
+            }
+            session.setAttribute("user", user);
             session.setAttribute("password", password);
-            if ("migselv".equals(giver))
+            if (user==1)
             {
                 return "newwishpage";
             } else

@@ -28,17 +28,17 @@ public class WishMapper_DB
         try
         {
             con = Connector.connection(con);
-            String SQL = "INSERT INTO `wishes` (wishtext, giver, notes) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO `wishes` (`wishtext`, `giver`, `notes`, `link`, `userid`) VALUES (?, ?, ?, ?, ?)";
             ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, wish.getWishText());
             ps.setString(2, wish.getGiver());
             ps.setString(3, wish.getNotes());
+            ps.setString(4, wish.getLink());
+            ps.setInt(5, wish.getUserID());
             ps.executeUpdate();
             rs = ps.getGeneratedKeys();
             rs.next();
-            int wishID = rs.getInt(1);
-            wish.setWishID(wishID);
-            return wish;
+            return getWish(wish.getWishText());
         } catch (SQLException ex)
         {
             throw new WishSampleException("Kunne ikke skabe nyt ønske: " + ex.getMessage());
@@ -89,19 +89,20 @@ public class WishMapper_DB
         {
             con = Connector.connection(con);
 
-            String SQL = "UPDATE `wishes` SET wishtext =?, giver= ?, notes=? WHERE id = ?;";
+            String SQL = "UPDATE `wishes` SET wishtext =?, giver= ?, notes=?, `link`=? WHERE id = ?;";
             ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, wish.getWishText());
             ps.setString(2, wish.getGiver());
             ps.setString(3, wish.getNotes());
-            ps.setInt(4, wish.getWishID());
+            ps.setString(4, wish.getLink());
+            ps.setInt(5, wish.getWishID());
             ps.executeUpdate();
             rs = ps.getGeneratedKeys();
             rs.next();
             return wish;
         } catch (SQLException ex)
         {
-            throw new WishSampleException("Kunne ikke skabe nyt ønske: " + ex.getMessage());
+            throw new WishSampleException("Kunne ikke ændre ønske: " + ex.getMessage());
         } finally
         {
             Connector.CloseConnection(rs, ps, con);
@@ -120,6 +121,8 @@ public class WishMapper_DB
         String wishtext = null;
         String giver = null;
         String notes = null;
+        String link = null;
+        int userID = 0;
 
         try
         {
@@ -134,8 +137,52 @@ public class WishMapper_DB
                 wishtext = rs.getString("wishtext");
                 giver = rs.getString("giver");
                 notes = rs.getString("notes");
+                link = rs.getString("link");
+                userID = rs.getInt("userid");
             }
-            return new Wish(id, wishtext, giver, notes);
+            return new Wish(id, wishtext, giver, notes, link, userID);
+
+        } catch (SQLException ex)
+        {
+            throw new WishSampleException("Kunne ikke skabe nyt ønske: " + ex.getMessage());
+        } finally
+        {
+            Connector.CloseConnection(rs, ps, con);
+        }
+    }
+
+    /**
+     *
+     * @param wishText
+     * @return
+     * @throws WishSampleException
+     * @throws LoginSampleException
+     */
+    public static Wish getWish(String wishText) throws WishSampleException, LoginSampleException
+    {
+        int wishID = 0;
+        String giver = null;
+        String notes = null;
+        String link = null;
+        int userID = 0;
+
+        try
+        {
+            con = Connector.connection(con);
+
+            String SQL = "SELECT * FROM `wishes` WHERE wishtext = ?;";
+            ps = con.prepareStatement(SQL);
+            ps.setString(1, wishText);
+            rs = ps.executeQuery();
+            while (rs.next())
+            {
+                wishID = rs.getInt("id");
+                giver = rs.getString("giver");
+                notes = rs.getString("notes");
+                link = rs.getString("link");
+                userID = rs.getInt("userid");
+            }
+            return new Wish(wishID, wishText, giver, notes, link, userID);
 
         } catch (SQLException ex)
         {
@@ -161,7 +208,9 @@ public class WishMapper_DB
                 wishes.add(new Wish(rs.getInt("id"),
                         rs.getString("wishtext"),
                         rs.getString("giver"),
-                        rs.getString("notes")
+                        rs.getString("notes"),
+                        rs.getString("link"),
+                        rs.getInt("userid")
                 ));
             }
             return wishes;

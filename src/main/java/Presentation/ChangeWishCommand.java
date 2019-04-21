@@ -17,7 +17,7 @@ public class ChangeWishCommand extends Command
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, WishSampleException
     {
         HttpSession session = request.getSession();
-        String user = (String) session.getAttribute("user");
+        int user = (Integer) session.getAttribute("user");
         String password = (String) session.getAttribute("password");
         try
         {
@@ -27,7 +27,7 @@ public class ChangeWishCommand extends Command
             if (id != 0 && "halvtreds".equals(password))
             {
                 session.setAttribute("wish", Logic.LogicFacade.fetchWish(id));
-                if ("migselv".equals(user))
+                if (user==1)
                 {
                     return "changewishtextpage";
                 }

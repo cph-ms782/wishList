@@ -22,6 +22,7 @@ public class SeeWishesCommand extends Command
         String giver = request.getParameter("giver");
         String notes = request.getParameter("notes");
         String wishText = request.getParameter("wishtext");
+        String link = request.getParameter("link");
         String sIndex = request.getParameter("index");
         int id = 0;
         HttpSession session = request.getSession();
@@ -48,6 +49,11 @@ public class SeeWishesCommand extends Command
                 if (wishText != null)
                 {
                     w.setWishText(wishText);
+                }
+                
+                if (link != null)
+                {
+                    w.setLink(link);
                 }
 
                 LogicFacade.alterWish(w);

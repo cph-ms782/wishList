@@ -17,7 +17,7 @@
         <%@ include file = "../jspf/body.jspf" %>
         <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/50.gif" alt="50 km" width="55" height="55"> for at logge ud</p>
 
-        <c:if test = "${sessionScope.user == 'migselv'}">
+        <c:if test = "${sessionScope.user == 1}">
 
             <div id="changeWishButtonContainer">
                 <div class="centerize">
@@ -33,19 +33,29 @@
                     <tr class="table">
                         <th></th>
                         <th>Gaveønske</th>
-                            <c:if test = "${sessionScope.user != 'migselv'}">
+                            <c:if test = "${sessionScope.user != 1}">
                             <th>Giver</th>
                             <th>Noter</th>  
                             </c:if>
+                        <th>Link</th>  
                     </tr>
                     <c:forEach items="${wishes}" var="wish"> 
                         <tr class="table-bordered">
                             <td style="color: white">${wish.wishID}</td>
                             <td>${wish.wishText}</td>
-                            <c:if test = "${sessionScope.user != 'migselv'}">
+                            <c:if test = "${sessionScope.user != 1}">
                                 <td>${wish.giver}</td>
                                 <td>${wish.notes}</td>
                             </c:if>
+
+                            <c:choose> 
+                                <c:when test = "${wish.link != null}">
+                                    <td><a href="${wish.link}" target="_blank">Link</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td></td>
+                                </c:otherwise>
+                            </c:choose>  
                         </tr>
                     </c:forEach>
                 </table>

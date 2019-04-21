@@ -15,7 +15,7 @@
     <body>
         <%@ include file = "../jspf/body.jspf" %>
 
-        <c:if test = "${sessionScope.user == 'migselv'}">
+        <c:if test = "${sessionScope.user == 1}">
             <div class="wrapper">
                 <div class="content">
                     <div class="main">
@@ -27,6 +27,10 @@
                             <div>
                                 <label for="wishtext" class="label">Ønske</label>
                                 <input type="text" id="departure" name="wishtext" value="${sessionScope.wish.wishText}">
+                            </div>
+                            <div>
+                                <label for="link" class="label">Link</label>
+                                <input type="text" id="departure" name="link" value="${sessionScope.wish.link}">
                             </div>
                             <div>
                                 <button id="next" class="btn btn-warning">Fortsæt</button>
