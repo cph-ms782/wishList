@@ -43,11 +43,6 @@
                         <tr class="table-bordered">
                             <td style="color: white">${wish.wishID}</td>
                             <td>${wish.wishText}</td>
-                            <c:if test = "${sessionScope.user != 1}">
-                                <td>${wish.giver}</td>
-                                <td>${wish.notes}</td>
-                            </c:if>
-
                             <c:choose> 
                                 <c:when test = "${wish.link != null}">
                                     <td><a href="${wish.link}" target="_blank">Link</td>
@@ -56,6 +51,10 @@
                                     <td></td>
                                 </c:otherwise>
                             </c:choose>  
+                            <c:if test = "${sessionScope.user != 1}">
+                                <td>${wish.giver}</td>
+                                <td>${wish.notes}</td>
+                            </c:if>
                         </tr>
                     </c:forEach>
                 </table>

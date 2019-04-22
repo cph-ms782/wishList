@@ -29,7 +29,7 @@ public class ChangeWishCommand extends Command
                 session.setAttribute("wish", Logic.LogicFacade.fetchWish(id));
                 if (user==1)
                 {
-                    return "changewishtextpage";
+                    return "changewishownerpage";
                 }
                 return "changewishpage";
             } else
