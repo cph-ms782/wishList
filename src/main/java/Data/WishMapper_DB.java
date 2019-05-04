@@ -223,4 +223,36 @@ public class WishMapper_DB
             Connector.CloseConnection(rs, ps, con);
         }
     }
+    
+    public static List<Wish> getWishes(int userID) throws WishSampleException, LoginSampleException
+    {
+        List<Wish> wishes = new ArrayList();
+        try
+        {
+            con = Connector.connection(con);
+
+            String SQL = "SELECT * FROM `wishes` WHERE id=?;";
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, userID);
+            rs = ps.executeQuery();
+            while (rs.next())
+            {
+                wishes.add(new Wish(userID,
+                        rs.getString("wishtext"),
+                        rs.getString("giver"),
+                        rs.getString("notes"),
+                        rs.getString("link"),
+                        rs.getInt("userid")
+                ));
+            }
+            return wishes;
+
+        } catch (SQLException ex)
+        {
+            throw new WishSampleException("Kunne ikke skabe liste med ønsker: " + ex.getMessage());
+        } finally
+        {
+            Connector.CloseConnection(rs, ps, con);
+        }
+    }
 }

@@ -1,7 +1,10 @@
 package Logic;
 
+import Data.UserMapper;
+import Data.UserMapper_DB;
 import Logic.Exceptions.LoginSampleException;
 import Data.WishMapper_DB;
+import Logic.DTO.User;
 import Logic.DTO.Wish;
 import Logic.Exceptions.WishSampleException;
 import java.util.List;
@@ -45,6 +48,26 @@ public class LogicFacade
     public static List<Wish> fetchWishes() throws WishSampleException, LoginSampleException
     {
         return WishMapper_DB.getWishes();
+    }
+
+    public static List<Wish> fetchWishes(int userID) throws WishSampleException, LoginSampleException
+    {
+        return WishMapper_DB.getWishes(userID);
+    }
+
+    public static User fetchUser(int userID) throws WishSampleException, LoginSampleException
+    {
+        return UserMapper_DB.getUser(userID);
+    }
+
+    public static User fetchUser(String userName) throws WishSampleException, LoginSampleException
+    {
+        return UserMapper_DB.getUser(userName);
+    }
+
+    public static User changePassword(int userID, String password) throws WishSampleException, LoginSampleException
+    {
+        return UserMapper_DB.changePassword(userID, password);
     }
 
     public static void main(String[] args) throws WishSampleException, LoginSampleException

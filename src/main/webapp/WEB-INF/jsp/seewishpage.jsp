@@ -17,7 +17,7 @@
         <%@ include file = "../jspf/body.jspf" %>
         <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/50.gif" alt="50 km" width="55" height="55"> for at logge ud</p>
 
-        <c:if test = "${sessionScope.user == 1}">
+        <c:if test = "${sessionScope.user.getUser} == ${loggedin}">
 
             <div id="changeWishButtonContainer">
                 <div class="centerize">
@@ -33,7 +33,7 @@
                     <tr class="table">
                         <th></th>
                         <th>Gaveønske</th>
-                            <c:if test = "${sessionScope.user != 1}">
+                            <c:if test = "${sessionScope.user} != ${loggedin}">
                             <th>Giver</th>
                             <th>Noter</th>  
                             </c:if>

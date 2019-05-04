@@ -1,5 +1,6 @@
 package Presentation;
 
+import Logic.DTO.User;
 import Logic.LogicFacade;
 import Logic.DTO.Wish;
 import Logic.Exceptions.LoginSampleException;
@@ -27,7 +28,8 @@ public class SeeWishesCommand extends Command
         int id = 0;
         HttpSession session = request.getSession();
         String password = (String) session.getAttribute("password");
-        if ("halvtreds".equals(password))
+        User user = (User) session.getAttribute("user");
+        if ("halvtreds".equals(password) || (user != null && user.getUserID() > 0))
         {
             if (sIndex != null && !sIndex.isEmpty())
             {
@@ -50,7 +52,7 @@ public class SeeWishesCommand extends Command
                 {
                     w.setWishText(wishText);
                 }
-                
+
                 if (link != null)
                 {
                     w.setLink(link);
@@ -58,7 +60,7 @@ public class SeeWishesCommand extends Command
 
                 LogicFacade.alterWish(w);
             }
-            
+
             session.setAttribute("wishes", LogicFacade.fetchWishes());
             return "seewishpage";
         }

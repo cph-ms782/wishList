@@ -1,5 +1,6 @@
 package Presentation;
 
+import Logic.DTO.User;
 import Logic.Exceptions.LoginSampleException;
 import Logic.Exceptions.WishSampleException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,17 +18,15 @@ public class ChangeWishCommand extends Command
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, WishSampleException
     {
         HttpSession session = request.getSession();
-        int user = (Integer) session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         String password = (String) session.getAttribute("password");
         try
         {
-            int id = Integer.parseInt(request.getParameter("index"));
-
 //          check if the user is logged ind
-            if (id != 0 && "halvtreds".equals(password))
+            if ("halvtreds".equals(password) || user!=null && user.getUserID()!= 0)
             {
                 session.setAttribute("wish", Logic.LogicFacade.fetchWish(id));
-                if (user==1)
+                if ((user != null && user.getUserID() > 0))
                 {
                     return "changewishownerpage";
                 }
