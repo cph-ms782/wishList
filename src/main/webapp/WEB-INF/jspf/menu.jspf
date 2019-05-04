@@ -18,35 +18,35 @@
                 </form>
             </div>
             <div id="bettina">
-                <form action="FrontController" method="POST">
+                <form action="FrontController" method="GET">
                     <input type="hidden" name="command" value="SeeWishesCommand" />
                     <input type="hidden" name="userName" value="Bettina" />
                     <button class="button btn btn-warning">Bettina</button>
                 </form>
             </div>
             <div id="isabel">
-                <form action="FrontController" method="POST">
+                <form action="FrontController" method="GET">
                     <input type="hidden" name="command" value="SeeWishesCommand" />
                     <input type="hidden" name="userName" value="Isabel" />
                     <button id="next" class="btn btn-warning">Isabel</button>
                 </form>
             </div>
             <div id="esther">
-                <form action="FrontController" method="POST">
+                <form action="FrontController" method="GET">
                     <input type="hidden" name="command" value="SeeWishesCommand" />
                     <input type="hidden" name="userName" value="Esther" />
                     <button id="next" class="btn btn-warning">Esther</button>
                 </form>
             </div>
             <div id="jakob">
-                <form action="FrontController" method="POST">
+                <form action="FrontController" method="GET">
                     <input type="hidden" name="command" value="SeeWishesCommand" />
                     <input type="hidden" name="userName" value="Jakob" />
                     <button id="next" class="btn btn-warning">Jakob</button>
                 </form>
             </div>
             <div id="peter">
-                <form action="FrontController" method="POST">
+                <form action="FrontController" method="GET">
                     <input type="hidden" name="command" value="SeeWishesCommand" />
                     <input type="hidden" name="userName" value="Peter" />
                     <button id="next" class="btn btn-warning">Peter</button>

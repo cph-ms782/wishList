@@ -118,6 +118,9 @@ public class UserMapper_DB
                 userPassword = rs.getString("userpassword");
                 image = rs.getString("image");
             }
+            if(userID==0){
+                return getUser(1);
+            }
             return new User(userID, userName, userPassword, image);
 
         } catch (SQLException ex)
