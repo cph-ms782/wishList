@@ -6,6 +6,8 @@ import Data.WishMapper_DB;
 import Logic.DTO.User;
 import Logic.DTO.Wish;
 import Logic.Exceptions.WishSampleException;
+import java.util.ArrayList;
+import static java.util.Collections.list;
 import java.util.List;
 
 /**
@@ -44,6 +46,18 @@ public class LogicFacade
         return WishMapper_DB.getWishes();
     }
 
+        public static List<Wish> fetchUserWishes(int userID) throws WishSampleException, LoginSampleException
+    {
+        List<Wish> userWishes = new ArrayList<>();
+        for (Wish wish : fetchWishes())
+        {
+            if(wish != null && wish.getUserID() == userID){
+                userWishes.add(wish);
+            }
+        }
+        return userWishes;
+    }
+        
     /**
      * *********** USER *****************
      */

@@ -47,13 +47,20 @@ CREATE TABLE `wishes` (
 LOCK TABLES `wishes` WRITE;
 /*!40000 ALTER TABLE `wishes` DISABLE KEYS */;
 INSERT INTO `wishes` (`wishtext`, `giver`, `notes`, `link`, `userid`) VALUES 
-('<b>Roccat Vulcan 120 AIMO</b> Gamer keyboard, Fra 1.160 kr. til 1.555 kr','','','https://www.pricerunner.dk/pl/111-4793853/Tastatur/Roccat-Vulcan-120-AIMO-Nordic-Sammenlign-Priser',1),
-('<b>Logitech G903</b> Gamer mus, ca. pris 907kr','','','https://www.pricerunner.dk/pl/110-4119224/Mus/Logitech-G903-Lightspeed-Wireless-Sammenlign-Priser',1),
-('<b>Beyerdynamic Custom Game</b> Gamer headset, Fra 1.366 kr.','','', 'https://www.pricerunner.dk/pl/94-4731093/Hoeretelefoner/Beyerdynamic-Custom-Game-Sammenlign-Priser', 1),
-('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',1),
-('<b>Brush Hero Roterende Vaskebørste</b>, 389kr',NULL,NULL,NULL,1),
-('<b>Tile Style Bluetooth-tracker</b>, 149kr',NULL,NULL,NULL,1),
-('<b>Game of Thrones ølkrus</b>, 509kr',NULL,NULL, NULL, 1);
+('<b>Roccat Vulcan 120 AIMO</b> Gamer keyboard, Fra 1.160 kr. til 1.555 kr','','','https://www.pricerunner.dk/pl/111-4793853/Tastatur/Roccat-Vulcan-120-AIMO-Nordic-Sammenlign-Priser',2),
+('<b>Logitech G903</b> Gamer mus, ca. pris 907kr','','','https://www.pricerunner.dk/pl/110-4119224/Mus/Logitech-G903-Lightspeed-Wireless-Sammenlign-Priser',2),
+('<b>Beyerdynamic Custom Game</b> Gamer headset, Fra 1.366 kr.','','', 'https://www.pricerunner.dk/pl/94-4731093/Hoeretelefoner/Beyerdynamic-Custom-Game-Sammenlign-Priser', 2),
+('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',2),
+('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',3),
+('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',4),
+('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',5),
+('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',6),
+('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',7),
+('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',8),
+('<b>Lindy Displayport til HDMI</b> Adapterkabel, ca. pris 119kr','','','https://www.av-connection.dk/?PGr=4328',9),
+('<b>Brush Hero Roterende Vaskebørste</b>, 389kr',NULL,NULL,NULL,2),
+('<b>Tile Style Bluetooth-tracker</b>, 149kr',NULL,NULL,NULL,2),
+('<b>Game of Thrones ølkrus</b>, 509kr',NULL,NULL, NULL, 2);
 
 /*!40000 ALTER TABLE `wishes` ENABLE KEYS */;
 UNLOCK TABLES;

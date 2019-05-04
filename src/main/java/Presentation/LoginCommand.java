@@ -25,21 +25,24 @@ public class LoginCommand extends Command
 
         try
         {
-            user = Logic.LogicFacade.fetchUser(userName);
+            //first letter Uppercase
+            user = Logic.LogicFacade.fetchUser(userName.substring(0, 1).toUpperCase() + userName.substring(1).toLowerCase());
 
-            // if no user was found it could be a collective gift...but password has top be checked
+            // if no user was found it could be a collective gift...but password has to be checked
         } catch (LoginSampleException ex)
         {
             user = Logic.LogicFacade.fetchUser(1); // user # 1 is "collective" user
+            session.setAttribute("giver", userName);
+
         }
-        
-        if (!user.getUserPassword().equals(password))
+
+        if (user == null || !user.getUserPassword().equals(password))
         {
-            throw new LoginSampleException("Kodeordet er forkert (id:1)");
+            throw new LoginSampleException("Der er gået noget galt (er kodeordet er forkert (id:1)");
         }
         session.setAttribute("user", user);
-        session.setAttribute("giver", userName);
-        session.setAttribute("wishes", Logic.LogicFacade.fetchWishes());
+        session.setAttribute("receiver", user);
+        session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(user.getUserID()));
         return "seewishpage";
     }
 }

@@ -1,7 +1,7 @@
 package Presentation;
 
+import Logic.DTO.User;
 import Logic.LogicFacade;
-import Logic.DTO.Wish;
 import Logic.Exceptions.LoginSampleException;
 import Logic.Exceptions.WishSampleException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,49 +19,21 @@ public class SeeWishesCommand extends Command
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, WishSampleException
     {
-        String giver = request.getParameter("giver");
-        String notes = request.getParameter("notes");
-        String wishText = request.getParameter("wishtext");
-        String link = request.getParameter("link");
-        String sIndex = request.getParameter("index");
-        int id = 0;
+        String userName = request.getParameter("userName");
         HttpSession session = request.getSession();
-        String password = (String) session.getAttribute("password");
-        if ("halvtreds".equals(password))
+        try
         {
-            if (sIndex != null && !sIndex.isEmpty())
+            User receiver = LogicFacade.fetchUser(userName);
+            User user = (User) session.getAttribute("user");
+            if (user != null)
             {
-                id = Integer.parseInt(request.getParameter("index"));
-
-//            Change wish
-                Wish w = LogicFacade.fetchWish(id);
-
-                if (giver != null)
-                {
-                    w.setGiver(giver);
-                }
-
-                if (notes != null)
-                {
-                    w.setNotes(notes);
-                }
-
-                if (wishText != null)
-                {
-                    w.setWishText(wishText);
-                }
-                
-                if (link != null)
-                {
-                    w.setLink(link);
-                }
-
-                LogicFacade.alterWish(w);
+                session.setAttribute("receiver", receiver);
+                session.setAttribute("wishes", LogicFacade.fetchUserWishes(receiver.getUserID()));
             }
-            
-            session.setAttribute("wishes", LogicFacade.fetchWishes());
-            return "seewishpage";
+        } catch (LoginSampleException ex)
+        {
+            throw new LoginSampleException("Du er logget ud (id:swc1)");
         }
-        return "loginpage";
+        return "seewishpage";
     }
 }

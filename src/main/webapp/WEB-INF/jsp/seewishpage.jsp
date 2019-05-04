@@ -17,14 +17,8 @@
         <%@ include file = "../jspf/body.jspf" %>
         <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/50.gif" alt="50 km" width="55" height="55"> for at logge ud</p>
 
-        <c:if test = "${sessionScope.user == 1}">
-
-            <div id="changeWishButtonContainer">
-                <div class="centerize">
-                    <button class="btn btn-success" onclick="window.location.href = 'FrontController?command=NewWishCommand';">Nyt ønske</button>
-                </div>
-            </div>
-
+        <c:if test = "${sessionScope.user.userID == sessionScope.receiver.userID}">
+            <%@ include file = "../jspf/menu.jspf" %>
         </c:if>
 
         <div id="wishTable">
@@ -32,8 +26,8 @@
                 <table id="mainTable" class="table table-hover table-condensed table-striped text-center">
                     <tr class="table">
                         <th></th>
-                        <th>Gaveønske</th>
-                            <c:if test = "${sessionScope.user != 1}">
+                        <th>Gaveønske for <c:out value="${sessionScope.receiver.userName}" /></th>
+                            <c:if test = "${sessionScope.user.userID != sessionScope.receiver.userID}">
                             <th>Giver</th>
                             <th>Noter</th>  
                             </c:if>
@@ -51,7 +45,7 @@
                                     <td></td>
                                 </c:otherwise>
                             </c:choose>  
-                            <c:if test = "${sessionScope.user != 1}">
+                            <c:if test = "${sessionScope.user.userID != sessionScope.receiver.userID}">
                                 <td>${wish.giver}</td>
                                 <td>${wish.notes}</td>
                             </c:if>
@@ -60,5 +54,7 @@
                 </table>
             </div>
         </div>
+
+
     </body>
 </html>

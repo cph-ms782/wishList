@@ -38,7 +38,7 @@ public class UserMapper_DB
 
             String SQL = "UPDATE `user` SET `user`=?, `userpassword`= ?, `image`=? WHERE userid = ?;";
             ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getUser());
+            ps.setString(1, user.getUserName());
             ps.setString(2, user.getUserPassword());
             ps.setString(3, user.getImage());
             ps.setInt(4, user.getUserID());
@@ -63,7 +63,7 @@ public class UserMapper_DB
      */
     public static User getUser(int id) throws LoginSampleException
     {
-        String user = null;
+        String userName = null;
         String userPassword = null;
         String image = null;
 
@@ -77,11 +77,11 @@ public class UserMapper_DB
             rs = ps.executeQuery();
             while (rs.next())
             {
-                user = rs.getString("user");
+                userName = rs.getString("user");
                 userPassword = rs.getString("userpassword");
                 image = rs.getString("image");
             }
-            return new User(id, user, userPassword, image);
+            return new User(id, userName, userPassword, image);
 
         } catch (SQLException ex)
         {

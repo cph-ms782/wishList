@@ -7,21 +7,21 @@ package Logic.DTO;
 public class User
 {
     private int userID;
-    private String user;
+    private String userName;
     private String userPassword;
     private String image;
 
-    public User(String user, String userPassword, String image)
+    public User(String userName, String userPassword, String image)
     {
-        this.user = user;
+        this.userName = userName;
         this.userPassword = userPassword;
         this.image = image;
     }
 
-    public User(int userID, String user, String userPassword, String image)
+    public User(int userID, String userName, String userPassword, String image)
     {
         this.userID = userID;
-        this.user = user;
+        this.userName = userName;
         this.userPassword = userPassword;
         this.image = image;
     }
@@ -36,14 +36,14 @@ public class User
         this.userID = userID;
     }
 
-    public String getUser()
+    public String getUserName()
     {
-        return user;
+        return userName;
     }
 
-    public void setUser(String user)
+    public void setUserName(String userName)
     {
-        this.user = user;
+        this.userName = userName;
     }
 
     public String getUserPassword()
@@ -69,7 +69,7 @@ public class User
     @Override
     public String toString()
     {
-        return "User{" + "userID=" + userID + ", user=" + user + ", userPassword=" + userPassword + ", image=" + image + '}';
+        return "User{" + "userID=" + userID + ", userName=" + userName + ", userPassword=" + userPassword + ", image=" + image + '}';
     }
 
     

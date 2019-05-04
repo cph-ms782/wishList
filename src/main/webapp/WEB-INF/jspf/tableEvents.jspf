@@ -23,7 +23,7 @@
 
 //          value is the value of the fist cell in the row you've clicked on
             var value = clickedRow.find('td:eq(0)').text();
-            var url = 'FrontController?command=ChangeWishCommand&index=' + value;
+            var url = 'FrontController?command=ChangingWishCommand&wishID=' + value;
             window.location = url;
             return;
             
