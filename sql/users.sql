@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `wishlist`/*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+CREATE DATABASE IF NOT EXISTS `user` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_danish_ci;
 
-USE `wishlist`;
+USE `user`;
 
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `user`;
@@ -12,7 +12,7 @@ CREATE TABLE `user` (
   `userpassword` varchar(50) NOT NULL,
   `image` varchar(1900),
   PRIMARY KEY (`userid`)
-);
+) ENGINE=InnoDB;
 
 INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('','halvtreds','');
 INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Martin','halvtreds','');

@@ -71,7 +71,7 @@ public class UserMapper_DB
         {
             con = Connector.connection(con);
 
-            String SQL = "SELECT * FROM `user` WHERE id = ?;";
+            String SQL = "SELECT * FROM `user` WHERE userid = ?;";
             ps = con.prepareStatement(SQL);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -92,6 +92,43 @@ public class UserMapper_DB
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws LoginSampleException
+     */
+    public static User getUser(String userName) throws LoginSampleException
+    {
+        int userID = 0;
+        String userPassword = null;
+        String image = null;
+
+        try
+        {
+            con = Connector.connection(con);
+
+            String SQL = "SELECT * FROM `user` WHERE `user` = ?;";
+            ps = con.prepareStatement(SQL);
+            ps.setString(1, userName);
+            rs = ps.executeQuery();
+            while (rs.next())
+            {
+                userID = rs.getInt("userid");
+                userPassword = rs.getString("userpassword");
+                image = rs.getString("image");
+            }
+            return new User(userID, userName, userPassword, image);
+
+        } catch (SQLException ex)
+        {
+            throw new LoginSampleException("Kunne ikke finde bruger eller kodeord var forkert: " + ex.getMessage());
+        } finally
+        {
+            Connector.CloseConnection(rs, ps, con);
+        }
+    }
+
     public static List<User> getUsers() throws WishSampleException, LoginSampleException
     {
         List<User> users = new ArrayList();
@@ -99,7 +136,7 @@ public class UserMapper_DB
         {
             con = Connector.connection(con);
 
-            String SQL = "SELECT * FROM `wishes`;";
+            String SQL = "SELECT * FROM `user`;";
             ps = con.prepareStatement(SQL);
             rs = ps.executeQuery();
             while (rs.next())

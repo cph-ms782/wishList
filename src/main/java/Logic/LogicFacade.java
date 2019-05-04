@@ -1,7 +1,9 @@
 package Logic;
 
+import Data.UserMapper_DB;
 import Logic.Exceptions.LoginSampleException;
 import Data.WishMapper_DB;
+import Logic.DTO.User;
 import Logic.DTO.Wish;
 import Logic.Exceptions.WishSampleException;
 import java.util.List;
@@ -15,12 +17,7 @@ public class LogicFacade
 {
 
     /**
-     * store one Wish object's contents in storage
-     *
-     * @param wish
-     * @return
-     * @throws Logic.Exceptions.WishSampleException
-     * @throws Logic.Exceptions.LoginSampleException
+     * *********** WISH *****************
      */
     public static Wish createWish(Wish wish) throws WishSampleException, LoginSampleException
     {
@@ -47,6 +44,33 @@ public class LogicFacade
         return WishMapper_DB.getWishes();
     }
 
+    /**
+     * *********** USER *****************
+     */
+    public static User alterUser(User user) throws WishSampleException, LoginSampleException
+    {
+        return UserMapper_DB.alterUser(user);
+    }
+
+    public static User fetchUser(int id) throws WishSampleException, LoginSampleException
+    {
+        return UserMapper_DB.getUser(id);
+    }
+
+    public static User fetchUser(String userName) throws WishSampleException, LoginSampleException
+    {
+        return UserMapper_DB.getUser(userName);
+    }
+    
+    public static List<User> fetchUsers() throws WishSampleException, LoginSampleException
+    {
+        return UserMapper_DB.getUsers();
+    }
+
+    
+    /**
+     * *********** TEST *****************
+     */
     public static void main(String[] args) throws WishSampleException, LoginSampleException
     {
 //        Wish wish = new Wish("Keyboard", "Lars", "Den køber vi");
@@ -57,10 +81,16 @@ public class LogicFacade
 //        System.out.println("fetch: " + wish);
 //        wish = new Wish(wish. getWishID(), "Musealter", "Lars og Hans", "Fandt den billigt");
 //        System.out.println("alter: " + alterWish(wish));
-        for (Wish wish : fetchWishes())
-        {
-            System.out.println(wish.toString());
-        }
+//        for (Wish wish : fetchWishes())
+//        {
+//            System.out.println(wish.toString());
+//        }
+//        for (User user : fetchUsers())
+//        {
+//            System.out.println(user.toString());
+//        }
+            System.out.println(fetchUser("Martin"));
+            System.out.println(fetchUser(4));
 
     }
 
