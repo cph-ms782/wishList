@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `wishlist`;
+CREATE DATABASE IF NOT EXISTS `wishlist` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_danish_ci;
 
 USE `wishlist`;
 
@@ -10,6 +10,6 @@ CREATE TABLE `wishes` (
   `giver` varchar(90) DEFAULT NULL,
   `notes` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 

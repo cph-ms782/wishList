@@ -6,30 +6,26 @@ package Logic.DTO;
  */
 public class User
 {
-
     private int userID;
     private String userName;
-    private String password;
-    private String img;
+    private String userPassword;
+    private String image;
 
-    
-    public User(String userName, String password, String img)
+    public User(String userName, String userPassword, String image)
     {
-        this.userID = 0;
         this.userName = userName;
-        this.password = password;
-        this.img = img;
+        this.userPassword = userPassword;
+        this.image = image;
     }
 
-    public User(int userID, String userName, String password, String img)
+    public User(int userID, String userName, String userPassword, String image)
     {
         this.userID = userID;
         this.userName = userName;
-        this.password = password;
-        this.img = img;
+        this.userPassword = userPassword;
+        this.image = image;
     }
 
-    
     public int getUserID()
     {
         return userID;
@@ -40,42 +36,41 @@ public class User
         this.userID = userID;
     }
 
-    public String getUser()
+    public String getUserName()
     {
         return userName;
     }
 
-    public void setUser(String userName)
+    public void setUserName(String userName)
     {
         this.userName = userName;
     }
 
-    public String getPassword()
+    public String getUserPassword()
     {
-        return password;
+        return userPassword;
     }
 
-    public void setPassword(String password)
+    public void setUserPassword(String userPassword)
     {
-        this.password = password;
+        this.userPassword = userPassword;
     }
 
-    public String getImg()
+    public String getImage()
     {
-        return img;
+        return image;
     }
 
-    public void setImg(String img)
+    public void setImage(String image)
     {
-        this.img = img;
+        this.image = image;
     }
 
     @Override
     public String toString()
     {
-        return "User{" + "userID=" + userID + ", userName=" + userName + ", password=" + password + ", img=" + img + '}';
+        return "User{" + "userID=" + userID + ", userName=" + userName + ", userPassword=" + userPassword + ", image=" + image + '}';
     }
-    
-    
+
     
 }

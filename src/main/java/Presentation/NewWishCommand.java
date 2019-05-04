@@ -1,5 +1,6 @@
 package Presentation;
 
+import Logic.DTO.User;
 import Logic.DTO.Wish;
 import Logic.Exceptions.LoginSampleException;
 import Logic.Exceptions.WishSampleException;
@@ -25,16 +26,15 @@ public class NewWishCommand extends Command
         HttpSession session = request.getSession();
         try
         {
-            int user = (int) session.getAttribute("user");
-            String password = (String) session.getAttribute("password");
+            User user = (User) session.getAttribute("user");
 
 //          check if the user is logged ind
-            if (user != 0 && user == 1 && "halvtreds".equals(password))
+            if (user!=null)
             {
                 if (wishText != null && !wishText.isEmpty())
                 {
-                    Logic.LogicFacade.createWish(new Wish(wishText, link, user));
-                    session.setAttribute("wishes", Logic.LogicFacade.fetchWishes());
+                    Logic.LogicFacade.createWish(new Wish(wishText, link, user.getUserID()));
+                    session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(user.getUserID()));
                 } else
                 {
                     return "newwishpage";
@@ -52,5 +52,4 @@ public class NewWishCommand extends Command
 //      if there were no exceptions sprung show the orderpage
         return "seewishpage";
     }
-
 }

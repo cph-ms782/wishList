@@ -15,15 +15,14 @@
     <body>
         <%@ include file = "../jspf/body.jspf" %>
 
-        <c:if test = "${sessionScope.user == 1}">
+        <c:if test = "${sessionScope.user.userID > 1}">
             <div class="wrapper">
                 <div class="content">
                     <div class="main">
                         <h1 class="white-text-with-blue-shadow">Ændre ønske</h1>
 
                         <form action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="SeeWishesCommand" />
-                            <input type="hidden" name="index" value="${param["index"]}" />
+                            <input type="hidden" name="command" value="ChangedWishCommand" />
                             <div>
                                 <label for="wishtext" class="label">Ønske</label>
                                 <input type="text" id="departure" name="wishtext" value="${sessionScope.wish.wishText}">
@@ -36,10 +35,8 @@
                                 <button id="next" class="btn btn-warning">Fortsæt</button>
                             </div>
                         </form>
-                        <button class="btn btn-success" onclick="window.location.href = 'FrontController?command=NewWishCommand';">Nyt ønske</button>
                         <form action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="DeleteWishCommand" />
-                            <input type="hidden" name="index" value="${param["index"]}" />
+                            <input type="hidden" name="command" value="ChangedWishCommand?deleted=true" />
                             <div>
                                 <button id="wishes" class="btn btn-danger">Slet ønsk</button>
                             </div>

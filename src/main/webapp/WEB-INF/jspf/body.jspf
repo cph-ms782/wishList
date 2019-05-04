@@ -18,15 +18,19 @@
             </span>
         </h1>
     </div>
+    <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/50.gif" alt="50 km" width="55" height="55"> for at logge ud</p>
 
+    <c:if test = "${sessionScope.user.userID > 1 }">
+        <%@ include file = "../jspf/menu.jspf" %>
+    </c:if>
     <!--plant login and register form on page-->
     <div id="login">
         <a href="form.html"><p id="openLogin">Login</p></a>
         <form name="LoginCommand" action="FrontController" method="POST">
             <input type="hidden" name="command" value="LoginCommand">
             <p>
-                <label for="giver">Giver</label>
-                <input type="text" name="giver" id="username">
+                <label for="user">Navn</label>
+                <input type="text" name="user" id="username">
             </p>
             <p>
                 <label for="password">Kodeord</label>
@@ -39,8 +43,8 @@
     </div>
 </div>
 
-<c:if test = "${sessionScope.error != null}">">
+<c:if test = "${error != null}">
 
-    <div id="errorInfo"><p> ${sessionScope.error} <p></div>
+    <div id="errorInfo"><p> ${error} <p></div>
 
 </c:if>
