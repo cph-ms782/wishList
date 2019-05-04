@@ -25,7 +25,7 @@
         <form name="LoginCommand" action="FrontController" method="POST">
             <input type="hidden" name="command" value="LoginCommand">
             <p>
-                <label for="giver">Giver</label>
+                <label for="user">Giver</label>
                 <input type="text" name="giver" id="username">
             </p>
             <p>

@@ -17,12 +17,11 @@ public class LoginCommand extends Command
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, WishSampleException
     {
-        String giver = request.getParameter("giver");
+        String user = request.getParameter("user");
         String password = request.getParameter("password").toLowerCase();
-        int user =0;
-        
-        if ("halvtreds".equals(password))
-        {
+        int userID =0;
+        try{
+            Logic.LogicFacade.
             HttpSession session = request.getSession();
             if("migselv".equals(giver)){
                 user=1;
@@ -37,7 +36,9 @@ public class LoginCommand extends Command
                 session.setAttribute("wishes", Logic.LogicFacade.fetchWishes());
                 return "seewishpage";
             }
+        } catch (LoginSampleException ex)
+        {
+            throw new LoginSampleException(("Kodeord eller brugernavn er ikke fundet"));
         }
-        throw new LoginSampleException("Skriv de rigtige login detaljer for at komme ind");
     }
 }

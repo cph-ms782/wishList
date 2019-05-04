@@ -14,6 +14,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`userid`)
 );
 
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('','halvtreds','');
 INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Martin','halvtreds','');
 INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Bettina','halvtreds','');
 INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Johannes','halvtreds','');
