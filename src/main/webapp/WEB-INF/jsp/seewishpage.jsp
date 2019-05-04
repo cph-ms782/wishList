@@ -15,11 +15,6 @@
     </head>
     <body>
         <%@ include file = "../jspf/body.jspf" %>
-        <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/50.gif" alt="50 km" width="55" height="55"> for at logge ud</p>
-
-        <c:if test = "${sessionScope.user.userID == sessionScope.receiver.userID}">
-            <%@ include file = "../jspf/menu.jspf" %>
-        </c:if>
 
         <div id="wishTable">
             <div class="container">

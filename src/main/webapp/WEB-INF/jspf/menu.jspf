@@ -7,11 +7,13 @@
 <div id="changeWishButtonContainer">
     <div class="centerize">
         <div class="btn-group">
-            <button class="btn btn-success" onclick="window.location.href = 'FrontController?command=MakingNewWishCommand';">Nyt ønske</button>
+            <c:if test = "${sessionScope.user.userID == sessionScope.receiver.userID}">
+                <button class="btn btn-success" onclick="window.location.href = 'FrontController?command=MakingNewWishCommand';">Nyt ønske</button>
+            </c:if>
             <div id="martin">
                 <form action="FrontController" method="GET">
                     <input type="hidden" name="command" value="SeeWishesCommand" />
-                    <input type="hidden" name="userName" value="SeeWishesCommand" />
+                    <input type="hidden" name="userName" value="Martin" />
                     <button class="button btn btn-warning">Martin</button>
                 </form>
             </div>

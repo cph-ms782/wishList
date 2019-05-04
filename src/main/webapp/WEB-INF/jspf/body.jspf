@@ -20,7 +20,7 @@
     </div>
     <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/50.gif" alt="50 km" width="55" height="55"> for at logge ud</p>
 
-    <c:if test = "${sessionScope.user.userID == sessionScope.receiver.userID}">
+    <c:if test = "${sessionScope.user.userID > 1 }">
         <%@ include file = "../jspf/menu.jspf" %>
     </c:if>
     <!--plant login and register form on page-->
