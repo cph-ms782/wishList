@@ -24,6 +24,7 @@ public class ChangedWishCommand extends Command
         String wishText = request.getParameter("wishtext");
         String link = request.getParameter("link");
         String deleted = request.getParameter("deleted");
+        
         HttpSession session = request.getSession();
         try
         {
