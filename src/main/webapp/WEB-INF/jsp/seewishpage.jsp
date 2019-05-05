@@ -16,17 +16,22 @@
     <body>
         <%@ include file = "../jspf/body.jspf" %>
 
+        <c:if test = "${sessionScope.user.userID > 1 }">
+            <%@ include file = "../jspf/menu.jspf" %>
+        </c:if>
+        <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/<c:out value="${sessionScope.receiver.image}" />" alt="modtager billede" height="55"> for at logge ud</p>
+
         <div id="wishTable">
             <div class="container">
                 <table id="mainTable" class="table table-hover table-condensed table-striped text-center">
                     <tr class="table">
                         <th></th>
-                        <th>Gaveønske for <c:out value="${sessionScope.receiver.userName}" /></th>
+                        <th>Gaveønsker for <c:out value="${sessionScope.receiver.userName}" /></th>
+                        <th>Link</th>  
                             <c:if test = "${sessionScope.user.userID != sessionScope.receiver.userID}">
                             <th>Giver</th>
                             <th>Noter</th>  
                             </c:if>
-                        <th>Link</th>  
                     </tr>
                     <c:forEach items="${wishes}" var="wish"> 
                         <tr class="table-bordered">

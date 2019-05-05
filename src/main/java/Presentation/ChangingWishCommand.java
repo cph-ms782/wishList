@@ -35,7 +35,7 @@ public class ChangingWishCommand extends Command
                 return "changewishpage";
             } else
             {// if you're logged out (aka there's no User in session) then this message
-                throw new LoginSampleException("Du er logget ud. Log ind for at fortsætte");
+                throw new LoginSampleException("Du er logget ud. Log ind for at fortsætte (id:ciwc1");
             }
         } catch (NumberFormatException e)
         {

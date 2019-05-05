@@ -6,23 +6,25 @@
 <!--logo area-->
 <div id="headerTopDiv">
     <div id="headerDiv">
-        <a href="FrontController?command=LogoutCommand">
-            <img src="img/50.gif" alt="50 år">
-        </a>
+        <c:choose>
+            <c:when test="${sessionScope.receiver == null}">
+                <img src="img/initial.gif" alt="modtager billede">
+            </c:when>
+            <c:otherwise>
+                <a href="FrontController?command=LogoutCommand">
+                    <img src="img/<c:out value="${sessionScope.receiver.image}" />" alt="modtager billede">
+                </a>
+            </c:otherwise>
+        </c:choose>
         <h1 id="headerText">
             <span id="legoText">
-                <span style="color: blue;">5</span>
-                <span style="color: green;">0 </span>
-                <span style="color: yellow;">å</span>
-                <span style="color: red;">r</span>
+                <span style="color: blue;">Ga</span>
+                <span style="color: green;">ve </span>
+                <span style="color: yellow;">Gui</span>
+                <span style="color: red;">den</span>
             </span>
         </h1>
     </div>
-    <p class="white-text-with-blue-shadow">Tryk på et ønske for at ændre. Tryk på <img src="img/50.gif" alt="50 km" width="55" height="55"> for at logge ud</p>
-
-    <c:if test = "${sessionScope.user.userID > 1 }">
-        <%@ include file = "../jspf/menu.jspf" %>
-    </c:if>
     <!--plant login and register form on page-->
     <div id="login">
         <a href="form.html"><p id="openLogin">Login</p></a>

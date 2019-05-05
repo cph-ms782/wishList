@@ -36,7 +36,8 @@
                             </div>
                         </form>
                         <form action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="ChangedWishCommand?deleted=true" />
+                            <input type="hidden" name="command" value="ChangedWishCommand" />
+                            <input type="hidden" name="deleted" value="true" />
                             <div>
                                 <button id="wishes" class="btn btn-danger">Slet ønsk</button>
                             </div>

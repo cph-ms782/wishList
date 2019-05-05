@@ -1,6 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `user` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_danish_ci;
-
-USE `user`;
+USE `wishlist`;
 
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `user`;
@@ -14,12 +12,12 @@ CREATE TABLE `user` (
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('','halvtreds','');
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Martin','halvtreds','');
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Bettina','halvtreds','');
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Johannes','halvtreds','');
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Elly','halvtreds','');
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Peter','halvtreds','');
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Jakob','halvtreds','');
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Isabel','halvtreds','');
-INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Esther','halvtreds','');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Johannes','halvtreds','50.gif');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Martin','halvtreds','martin2.JPG');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Bettina','halvtreds','bettina1.JPG');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Johannes','halvtreds','johannes3.JPG');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Elly','halvtreds','elly1.JPG');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Peter','halvtreds','peter1.JPG');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Jakob','halvtreds','jakob1.JPG');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Isabel','halvtreds','isabel1.JPG');
+INSERT INTO `user` (`user`, `userpassword`, `image`) VALUES('Esther','halvtreds','esther1.JPG');

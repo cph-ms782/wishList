@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <label for="link" class="label">Link</label>
-                            <input contenteditable="true" type="url" id="departure" name="link">
+                            <input contenteditable="true" type="text" id="departure" name="link">
                         </div>
                         <div>
                             <button id="next" class="btn btn-warning">Fortsæt</button>

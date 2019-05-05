@@ -20,10 +20,10 @@
                     <h1 class="white-text-with-blue-shadow">Skriv noget episk</h1>
                     ${sessionScope.wish.wishText}
                     <form action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="ChangedWishesCommand" />
+                        <input type="hidden" name="command" value="ChangedWishCommand" />
                         <div>
                             <label for="giver" class="label">Giver</label>
-                            <input type="text" id="departure" name="giver" value="${sessionScope.receiver.userName}">
+                            <input type="text" id="departure" name="giver" value="${sessionScope.user.userName}">
                         </div>
                         <div>
                             <label for="notes" class="label">Noter</label>

@@ -17,7 +17,7 @@ public class Connector
 {
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost/wishlist?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8";
+    private static final String URL = "jdbc:mysql://localhost:3306/wishlist?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8";
     private static final String USERNAME = "testuser";
     private static final String PASSWORD = "password123";
 
