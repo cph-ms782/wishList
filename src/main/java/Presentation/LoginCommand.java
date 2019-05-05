@@ -3,6 +3,7 @@ package Presentation;
 import Logic.DTO.User;
 import Logic.Exceptions.LoginSampleException;
 import Logic.Exceptions.WishSampleException;
+import Logic.LogicFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,12 +28,12 @@ public class LoginCommand extends Command
         {
             //first letter Uppercase
             user = Logic.LogicFacade.fetchUser(userName.substring(0, 1).toUpperCase() + userName.substring(1).toLowerCase());
+            session.setAttribute("giver", userName);
 
             // if no user was found it could be a collective gift...but password has to be checked
         } catch (LoginSampleException ex)
         {
-            user = Logic.LogicFacade.fetchUser(1); // user # 1 is "collective" user
-            session.setAttribute("giver", userName);
+            throw new LoginSampleException("Der er sket en fejl. Er kodeordet skrevet korrekt? (id:lc1)");
 
         }
 
@@ -42,7 +43,14 @@ public class LoginCommand extends Command
         }
         session.setAttribute("user", user);
         session.setAttribute("receiver", user);
-        session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(user.getUserID()));
+        if (user.getUserID() == 1)
+        {
+            String collectiveUser = user.getUserName().replace("_fælles", "");
+            session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(LogicFacade.fetchUser(collectiveUser).getUserID()));
+        } else
+        {
+            session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(user.getUserID()));
+        }
         return "seewishpage";
     }
 }

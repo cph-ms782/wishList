@@ -28,7 +28,7 @@
                         <th></th>
                         <th>Gaveønsker for <c:out value="${sessionScope.receiver.userName}" /></th>
                         <th>Link</th>  
-                            <c:if test = "${sessionScope.user.userID != sessionScope.receiver.userID}">
+                            <c:if test = "${sessionScope.user.userID != sessionScope.receiver.userID || sessionScope.user.userID == 1}">
                             <th>Giver</th>
                             <th>Noter</th>  
                             </c:if>
@@ -45,7 +45,7 @@
                                     <td></td>
                                 </c:otherwise>
                             </c:choose>  
-                            <c:if test = "${sessionScope.user.userID != sessionScope.receiver.userID}">
+                            <c:if test = "${sessionScope.user.userID != sessionScope.receiver.userID || sessionScope.user.userID == 1}">
                                 <td>${wish.giver}</td>
                                 <td>${wish.notes}</td>
                             </c:if>

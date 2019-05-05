@@ -24,7 +24,7 @@ public class ChangedWishCommand extends Command
         String wishText = request.getParameter("wishtext");
         String link = request.getParameter("link");
         String deleted = request.getParameter("deleted");
-        
+
         HttpSession session = request.getSession();
         try
         {
@@ -65,7 +65,16 @@ public class ChangedWishCommand extends Command
                     LogicFacade.alterWish(wish);
                 }
             }
-            session.setAttribute("wishes", LogicFacade.fetchUserWishes(receiver.getUserID()));
+
+            if (user.getUserID() == 1)
+            {
+                String collectiveUser = user.getUserName().replace("_fælles", "");
+                session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(LogicFacade.fetchUser(collectiveUser).getUserID()));
+            } else
+            {
+                session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(user.getUserID()));
+            }
+
             return "seewishpage";
 
         } catch (NullPointerException ex)

@@ -23,7 +23,14 @@
                         <input type="hidden" name="command" value="ChangedWishCommand" />
                         <div>
                             <label for="giver" class="label">Giver</label>
-                            <input type="text" id="departure" name="giver" value="${sessionScope.user.userName}">
+                            <c:choose>
+                                <c:when test ="${sessionScope.user.userID == 1}">
+                                    <input type="text" id="departure" name="giver" value="${sessionScope.giver}">
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="text" id="departure" name="giver" value="${sessionScope.user.userName}">
+                                </c:otherwise>    
+                            </c:choose>
                         </div>
                         <div>
                             <label for="notes" class="label">Noter</label>

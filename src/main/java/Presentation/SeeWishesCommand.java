@@ -21,14 +21,31 @@ public class SeeWishesCommand extends Command
     {
         String userName = request.getParameter("userName");
         HttpSession session = request.getSession();
+        User receiver = null;
+        User user = null;
         try
         {
-            User receiver = LogicFacade.fetchUser(userName);
-            User user = (User) session.getAttribute("user");
+            user = (User) session.getAttribute("user");
+
+            //sometimes SeeWishesCommand is called from pages where theres no param: userName
+            if (userName != null && !userName.isEmpty())
+            {
+                receiver = LogicFacade.fetchUser(userName);
+            } else
+            {
+                receiver = user;
+            }
             if (user != null)
             {
                 session.setAttribute("receiver", receiver);
-                session.setAttribute("wishes", LogicFacade.fetchUserWishes(receiver.getUserID()));
+                if (user.getUserID() == 1)
+                {
+                    String collectiveUser = user.getUserName().replace("_fælles", "");
+                    session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(LogicFacade.fetchUser(collectiveUser).getUserID()));
+                } else
+                {
+                    session.setAttribute("wishes", Logic.LogicFacade.fetchUserWishes(user.getUserID()));
+                }
             }
         } catch (LoginSampleException ex)
         {
